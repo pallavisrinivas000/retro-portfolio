@@ -1,0 +1,83 @@
+/* Retro Fonts */
+body {
+    font-family: 'Press Start 2P', cursive;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(45deg, #ff5f6d, #ffc3a0); /* Neon gradient */
+    color: white;
+}
+
+/* Header Styling */
+header {
+    background: #333;
+    color: #f4f4f4;
+    padding: 30px;
+    text-align: center;
+    border-bottom: 4px solid #ff0055;
+}
+
+header h1 {
+    font-size: 2.5em;
+    letter-spacing: 2px;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 20px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #ff0055;
+    font-size: 1.2em;
+}
+
+/* Section Styling */
+section {
+    padding: 20px;
+    margin: 30px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px dashed #ff0055;
+    border-radius: 10px;
+}
+
+section h2 {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 15px;
+    color: #ff0055;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: #f4f4f4;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+footer p {
+    font-size: 0.9em;
+}
+
+/* Link Hover Effects */
+header nav ul li a:hover {
+    color: #ffcc00;
+    text-shadow: 2px 2px 4px #ff0055;
+}
+
+/* Other Retro Elements */
+section p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #f4f4f4;
+}
