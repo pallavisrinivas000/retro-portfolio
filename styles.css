@@ -1,83 +1,625 @@
-/* Retro Fonts */
+/* LinkedIn Logo */
+.mode-toggle {
+    position: absolute;
+    top: 10px; /* Move to the top */
+    left: 10px; /* Align to the left */
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #33ff33;
+    background: none;
+    border: 2px solid #33ff33;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    outline: none;
+    z-index: 1002;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.mode-toggle:hover {
+    background-color: #33ff33;
+    color: #000;
+}
+
+.top-right-icons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 20px; /* Space between icons */
+    z-index: 1001;
+}
+
+.top-right-icons img {
+    width: 30px;
+    height: 30px;
+}
+
+.mode-switch {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    color: #33ff33;
+    margin-top: 10px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #33ff33;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.light-mode-label, .dark-mode-label {
+    font-size: 1.5rem;
+    color: #33ff33;
+}
+
+/* General Styles */
 body {
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'VT323', monospace;
+    background-color: #1a1a1a;
+    color: #33ff33;
     margin: 0;
     padding: 0;
-    background: linear-gradient(45deg, #ff5f6d, #ffc3a0); /* Neon gradient */
-    color: white;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-/* Header Styling */
-header {
-    background: #333;
-    color: #f4f4f4;
-    padding: 30px;
-    text-align: center;
-    border-bottom: 4px solid #ff0055;
+body.light-mode {
+    background-color: #f0f0f0;
+    color: #000;
 }
 
-header h1 {
-    font-size: 2.5em;
-    letter-spacing: 2px;
-}
-
-header nav ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 15px;
-}
-
-header nav ul li {
-    display: inline;
-    margin: 0 20px;
-}
-
-header nav ul li a {
-    text-decoration: none;
-    color: #ff0055;
-    font-size: 1.2em;
-}
-
-/* Section Styling */
-section {
-    padding: 20px;
-    margin: 30px;
-    background: rgba(0, 0, 0, 0.5);
-    border: 2px dashed #ff0055;
-    border-radius: 10px;
-}
-
-section h2 {
-    font-size: 2em;
-    text-align: center;
-    margin-bottom: 15px;
-    color: #ff0055;
-}
-
-/* Footer Styling */
-footer {
-    background-color: #333;
-    color: #f4f4f4;
-    text-align: center;
-    padding: 20px;
+/* Mock Login Screen */
+#login-screen {
     position: fixed;
     width: 100%;
-    bottom: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    z-index: 1000;
 }
 
-footer p {
-    font-size: 0.9em;
+.login-content {
+    text-align: center;
 }
 
-/* Link Hover Effects */
-header nav ul li a:hover {
+#password-mock {
+    font-size: 1.5rem;
+    letter-spacing: 5px;
+}
+
+/* Typewriter effect for loading screen */
+#loading-screen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 900;
+}
+
+.typewriter p {
+    font-size: 2rem;
+    color: #33ff33;
+    overflow: hidden;
+    border-right: 2px solid;
+    white-space: nowrap;
+    letter-spacing: 2px;
+    animation: typing 3.5s steps(40, end), blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    from { border-color: transparent; }
+    to { border-color: #33ff33; }
+}
+
+/* Glitch Effect */
+#glitch-screen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 800;
+}
+
+.glitch-text {
+    font-size: 2rem;
+    color: red;
+    animation: glitch 0.2s infinite;
+}
+
+@keyframes glitch {
+    0%, 20%, 40%, 60%, 80%, 100% { transform: translate(0, 0); }
+    10%, 30%, 50%, 70%, 90% { transform: translate(2px, 0); }
+}
+
+/* Blog Post */
+.project {
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    background: rgba(0, 255, 0, 0.02);
+    border-left: 3px solid #0f0;
+    border-radius: 0 8px 8px 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.project:hover {
+    background: rgba(0, 255, 0, 0.04);
+    transform: translateX(5px);
+}
+
+.project:last-child {
+    border-bottom: none;
+}
+
+.project h3 {
     color: #ffcc00;
-    text-shadow: 2px 2px 4px #ff0055;
+    margin-bottom: 1.5rem;
 }
 
-/* Other Retro Elements */
-section p {
+.project-header-icon {
     font-size: 1.2em;
-    line-height: 1.6;
-    color: #f4f4f4;
+    margin-right: 0.5rem;
+}
+
+/* Header, Navigation, Main Sections */
+h1, h2, h3 {
+    color: #ffcc00;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 3rem;
+    margin-top: 2rem;
+    display: inline-block;
+    border-bottom: 2px solid #ffcc00;
+    padding-bottom: 0.5rem;
+}
+
+h3 {
+    font-size: 2.5rem;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 0.5rem;
+    border-bottom: 2px solid #ffcc00;
+    padding-bottom: 0.5rem;
+}
+
+/* Buttons */
+.nav-button, .community-button, .download-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #000;
+    color: #33ff33;
+    text-decoration: none;
+    border: 2px solid #33ff33;
+    font-family: 'VT323', monospace;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    position: relative;
+    cursor: pointer;
+}
+
+.nav-button::before, .community-button::before, .download-button::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border: 2px solid #33ff33;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.nav-button:hover, .community-button:hover, .download-button:hover {
+    background-color: #33ff33;
+    color: #000;
+    border-color: #ffcc00;
+}
+
+.nav-button:hover::before, .community-button:hover::before, .download-button:hover::before {
+    opacity: 1;
+}
+
+/* Profile Photo */
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: block;
+    border: 4px solid #33ff33;
+    margin: 0;
+}
+
+/* About Section */
+#about {
+    margin: 50px auto;
+    padding: 20px;
+    text-align: left;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.about-text {
+    flex: 1;
+    margin-right: 20px;
+    font-size: 1.5rem;
+    color: #33ff33;
+}
+
+.about-photo {
+    flex: 0 0 150px;
+}
+
+/* Certifications Section */
+.certifications-gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 20px;
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+.certifications-gallery img, .resume-photo {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 3px solid #33ff33;
+    margin: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.credly-logo {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.resume-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Project Video */
+.project-video {
+    margin-top: 20px;
+}
+
+.project-video video {
+    width: 100%;
+    max-width: 640px;
+    border: 4px solid #33ff33;
+}
+
+/* Flipping Card Gallery */
+.flipping-gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 240px;
+    height: 240px;
+    margin: 20px;
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.flip-card-front {
+    background-color: #33ff33;
+    color: black;
+    border: 2px solid #ffcc00; /* Yellow outline */
+    filter: brightness(0.9); /* Subtle yellow tint */
+}
+
+.flip-card-back {
+    background-color: #000;
+    transform: rotateY(180deg);
+    border: 2px solid #ffcc00; /* Yellow outline */
+    filter: brightness(0.9); /* Subtle yellow tint */
+}
+
+.flip-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Links */
+a {
+    color: #33ff33;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #ffcc00;
+}
+
+.project-link-symbol {
+    color: #ffcc00;
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+.project-separator {
+    border-top: 2px dashed #33ff33;
+    margin: 20px 0;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.project-separator::before {
+    content: "⚡";
+    font-size: 2rem;
+    color: #ffcc00;
+    margin-right: 10px;
+}
+
+.project-separator::after {
+    content: "⚡";
+    font-size: 2rem;
+    color: #ffcc00;
+    margin-left: 10px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #000;
+    color: #33ff33;
+    border-top: 2px solid #33ff33;
+}
+
+/* Contact Section */
+.contact-list {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+.contact-list li {
+    margin: 1rem 0;
+}
+
+.contact-list a {
+    font-size: 2rem;
+}
+
+/* Tape Deck Styles (Retro Boom Box) */
+#tape-deck {
+    width: 325px;
+    height: 208px;
+    background: linear-gradient(145deg, #444, #222);
+    border: 10px solid #33ff33;
+    border-radius: 13px;
+    margin: 0 auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 13px;
+    overflow: hidden;
+}
+
+#tape-deck::before, #tape-deck::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    width: 140px;
+    height: 30px;
+    background-color: #777;
+    border: 4px solid #333;
+    border-radius: 8px;
+}
+
+#tape-deck::before {
+    left: 20px;
+}
+
+#tape-deck::after {
+    right: 20px;
+}
+
+.tape-knob {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    background: radial-gradient(circle, #777 0%, #333 60%, #111 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+.tape-knob.left {
+    top: 13px;
+    left: 13px;
+}
+
+.tape-knob.right {
+    top: 13px;
+    right: 13px;
+}
+
+.cassette-window {
+    position: absolute;
+    top: 78px;
+    width: 80%;
+    height: 39px;
+    background-color: #222;
+    border: 1px solid #ffcc00;
+    border-radius: 3px;
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px;
+}
+
+.microphone {
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    background-color: #ffcc00;
+    border-radius: 50%;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    z-index: 3;
+}
+
+.microphone.left {
+    bottom: 46px;
+    left: 26px;
+}
+
+.microphone.right {
+    bottom: 46px;
+    right: 26px;
+}
+
+.podcast-audio {
+    width: 80%;
+    margin-top: 20px;
+}
+
+.label {
+    position: absolute;
+    bottom: 10px;
+    font-size: 0.8rem;
+    color: #999;
+    z-index: 2;
+}
+
+.label.left {
+    left: 20px;
+}
+
+.label.right {
+    right: 20px;
+}
+
+.podcast-list {
+    margin-top: 30px;
+}
+
+.podcast-item a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #777;
+}
+
+.podcast-item a:hover {
+    color: #555;
+}
+.project-header-icon {
+    height: 3.5rem;
+    margin-right: 10px;
+    vertical-align: middle;
 }
